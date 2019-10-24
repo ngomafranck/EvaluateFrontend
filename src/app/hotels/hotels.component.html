@@ -1,0 +1,36 @@
+<!--suppress BuyFluidPluginNoteInspection -->
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Hostel List</div>
+    <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+        <div class="form-group">
+          <label>keyword</label>
+          <input type="text" name="keyword" ngModel>
+          <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphycon-search"></span>
+            Chercher
+          </button>
+        </div>
+      </form>
+      <table *ngIf="hotels" class="table table-striped">
+        <tr>
+          <th>ID</th><th>NAME</th><th>DESC</th><th>PHONE</th><th>ADDRESS</th><th>STARS</th><th>BEDROOM</th><th>PEOPLE</th><th>PROMOTED</th><th>SELECTED</th><th>PHOTO</th>
+        </tr>
+        <tr *ngFor="let h of hotels._embedded.hotels">
+          <td>{{h.id}}</td>
+          <td>{{h.name}}</td>
+          <td>{{h.description}}</td>
+          <td>{{h.phone}}</td>
+          <td>{{h.address}}</td>
+          <td>{{h.stars}}</td>
+          <td>{{h.bedroomavailable}}</td>
+          <td>{{h.people}}</td>
+          <td>{{h.promoted}}</td>
+          <td>{{h.selected}}</td>
+          <td>{{h.photo}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
